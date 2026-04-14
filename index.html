@@ -19,27 +19,65 @@
     <br>
 
     <h4>Select a pizza size</h4>
-    <input type="radio" name="size"><label>Small</label>
-    <input type="radio" name="size"><label>Medium</label>
-    <input type="radio" name="size"><label>Large</label>
-    <input type="radio" name="size"><label>XLarge</label>
+    <form id="sizeForm">
+        <input type="radio" id="small" name="size" value="Small">
+        <label for="small">Small | $10.00 </label>
+  
+        <input type="radio" id="medium" name="size" value="Medium">
+        <label for="medium">Medium | $15.00 </label>
+  
+        <input type="radio" id="large" name="size" value="Large">
+        <label for="large">Large | $18.00</label>
+  
+        <input type="radio" id="xlarge" name="size" value="Extra Large">
+        <label for="xlarge">Extra Large | $25.00</label>
+    </form>
+
     <br>
     
     <h4>Select 2 base toppings (free of charge)</h4>
-    <input type="checkbox" name="freetoppings"><label>Pepperoni</label>
-    <input type="checkbox" name="freetoppings"><label>Sausage</label>
-    <input type="checkbox" name="freetoppings"><label>Ham</label>
-    <input type="checkbox" name="freetoppings"><label>Anchovies</label>
-    <input type="checkbox" name="freetoppings"><label>Spinach</label>
-    <input type="checkbox" name="freetoppings"><label>Bell Pepper</label>
-    <input type="checkbox" name="freetoppings"><label>Mushroom</label>
-    <input type="checkbox" name="freetoppings"><label>Onion</label>
-    <input type="checkbox" name="freetoppings"><label>Tomatoes</label>
-    <input type="checkbox" name="freetoppings"><label>Olives</label>
+
+    <form id="toppings">
+        <input type="checkbox" name="freetoppings" value="pepperoni">
+        <label>Pepperoni</label>
+
+        <input type="checkbox" name="freetoppings" value="sausage">
+        <label>Sausage</label>
+
+        <input type="checkbox" name="freetoppings" value="ham">
+        <label>Ham</label>
+
+        <input type="checkbox" name="freetoppings" value="anchovies">
+        <label>Anchovies</label>
+
+        <input type="checkbox" name="freetoppings" value="spinach">
+        <label>Spinach</label>
+
+        <input type="checkbox" name="freetoppings" value="bellpepper">
+        <label>Bell Pepper</label>
+
+        <input type="checkbox" name="freetoppings" value="mushroom">
+        <label>Mushroom</label>
+
+        <input type="checkbox" name="freetoppings" value="onion">
+        <label>Onion</label>
+
+        <input type="checkbox" name="freetoppings" value="tomatoes">
+        <label>Tomatoes</label>
+
+        <input type="checkbox" name="freetoppings" value="olives">
+        <label>Olives</label>
+    </form>
 
     <h4>Delivery Details</h4>
     <input type="text" name="address" placeholder="Street Address" required>
     <input type="text" name="apt" placeholder="Apt/Suite (Optional)">
-    <textarea name="instructions" placeholder="Gate codes or 'Watch out for the dog'..." rows="2"></textarea>
+    <input type="text" name="instructions" placeholder="Instrutions (Optional)" rows="2"></textarea>
+    <br>
+
+    <h4>Order Details</h4>
+    <p id="ordersummary"></p>
+
+    <button id="submitOrder">Submit order!</button>
 </body>
 </html>
