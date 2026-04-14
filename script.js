@@ -1,8 +1,8 @@
-let namev1 = document.getElementById("name");
-const userName = namev1[0].toUpperCase() + namev1.slice(1);
+const userName = document.getElementById('name');
+const sizeForm = document.getElementById('sizeForm');
+const toppingsForm = document.getElementById('toppings');
+const summary = document.getElementById('ordersummary');
+const submitBtn = document.getElementById('submitOrder');
 
-const getSelectedSize = () => {
-  const selected = document.querySelector('input[name="size"]:checked');
-  return selected ? selected.value : null;
-};
+
 
