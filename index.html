@@ -5,6 +5,12 @@
     <title>Home</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+<!-- 
+    This project is a pizza builder website. It will contain input for user names, pizza
+     size, toppings, etc. It will contain a list with user-selected toppings.
+    It will contain a function to compute the final cost of the pizza (the parameters, 
+    for now, are size and topping count. More parameters will be added on soon.)
+-->
 </head>
 <body>
     <h2>Steven's Pizzeria</h2>
@@ -13,13 +19,27 @@
     <br>
 
     <h4>Select a pizza size</h4>
-    <input type="radio" name="size" Small>
-    <input type="radio" name="size" Medium>
-    <input type="radio" name="size" Large>
-    <input type="radio" name="size" XLarge>
+    <input type="radio" name="size"><label>Small</label>
+    <input type="radio" name="size"><label>Medium</label>
+    <input type="radio" name="size"><label>Large</label>
+    <input type="radio" name="size"><label>XLarge</label>
     <br>
     
     <h4>Select 2 base toppings (free of charge)</h4>
-    <input type="checkbox" name="freetoppings">
+    <input type="checkbox" name="freetoppings"><label>Pepperoni</label>
+    <input type="checkbox" name="freetoppings"><label>Sausage</label>
+    <input type="checkbox" name="freetoppings"><label>Ham</label>
+    <input type="checkbox" name="freetoppings"><label>Anchovies</label>
+    <input type="checkbox" name="freetoppings"><label>Spinach</label>
+    <input type="checkbox" name="freetoppings"><label>Bell Pepper</label>
+    <input type="checkbox" name="freetoppings"><label>Mushroom</label>
+    <input type="checkbox" name="freetoppings"><label>Onion</label>
+    <input type="checkbox" name="freetoppings"><label>Tomatoes</label>
+    <input type="checkbox" name="freetoppings"><label>Olives</label>
+
+    <h4>Delivery Details</h4>
+    <input type="text" name="address" placeholder="Street Address" required>
+    <input type="text" name="apt" placeholder="Apt/Suite (Optional)">
+    <textarea name="instructions" placeholder="Gate codes or 'Watch out for the dog'..." rows="2"></textarea>
 </body>
 </html>
