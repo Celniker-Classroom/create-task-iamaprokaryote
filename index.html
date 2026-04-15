@@ -35,7 +35,7 @@
 
     <br>
     
-    <h4>Select 2 base toppings (free of charge)</h4>
+    <h4 id="toppingsmsg">Select 2 base toppings (free of charge)</h4>
 
     <form id="toppings">
         <input type="checkbox" name="freetoppings" value="pepperoni">
@@ -70,9 +70,17 @@
     </form>
 
     <h4>Delivery Details</h4>
-    <input type="text" name="address" placeholder="Street Address" required>
-    <input type="text" name="apt" placeholder="Apt/Suite (Optional)">
-    <textarea name="instructions" placeholder="Instructions" rows="2"></textarea>
+
+    <form>
+        <input type="radio" name="deliverymethod" value="instore">
+        <label>In-store Pickup (no addtl. charge)</label>
+
+        <input type="radio" name="deliverymethod" value="curbside">
+        <label>Curbside Pickup ($3 extra)</label>
+
+        <input type="radio" name="deliverymethod" value="delivery">
+        <label>Delivery ($15 extra)</label>
+    </form>
     <br>
 
     <h4>Order Details</h4>
