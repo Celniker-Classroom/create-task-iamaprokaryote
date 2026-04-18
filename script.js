@@ -1,3 +1,5 @@
+const summary = document.getElementById('ordersummary');
+const orderBtn = document.getElementById('submitorder');
 const prices = {
     "Small": 10.00,
     "Medium": 15.00,
@@ -5,43 +7,39 @@ const prices = {
     "Xtra™ Large": 25.00
 };
 
-function calculateTotal(size, toppingCount) {
-    let basePrice = prices[size] || 0;
-    let extraCost = 0;
-
-    if (toppingCount > 2) {
-        extraCost = (toppingCount - 2) * 1.50;
+function calculateTotal(size, toppingcount, deliverytype) {
+    let baseprice = prices[size] || 0;
+    let extracost = 0;
+    let deliverycost = 0;
+    if (toppingcount > 2) {
+        extracost = (toppingcount - 2) * 0.50;
     }
-
-    return basePrice + extraCost;
+    if (deliverytype === "curbside") {
+        deliverycost = 3;
+    }
+    else if (deliverytype === "delivery") {
+        deliverycost = 15;
+    }
+    return baseprice + extracost + deliverycost;
 }
 
 function updateOrderSummary() {
     let username = document.getElementById('name').value;
-    const formattedName = username ? username.charAt(0).toUpperCase() + username.slice(1).toLowerCase() : "Customer";
-    let selectedsize = document.querySelector('input[name="size"]:checked');
-
+    const formattedname = username ? username.charAt(0).toUpperCase() + username.slice(1).toLowerCase() : "Customer";
+    let sizeselect = document.querySelector("input[name='size']:checked");
+    let deliverselect = document.querySelector("input[name='deliverymethod']:checked");
     let toppingarray = [];
-    document.querySelectorAll('input[name="freetoppings"]:checked').forEach(el => {
+    document.querySelectorAll("input[name='freetoppings']:checked").forEach(el => {
         toppingarray.push(el.value);
-    });
-    let userdeliver = document.querySelector('input[name="deliverymethod"]:checked');
-    let deliverymethod = userdeliver ? userdeliver.value : "None";
-    let baseprice = selectedsize ? prices[selectedsize.value] : 0;
-    let extratoppingcost = 0;
-    if (toppingarray.length > 2) {
-        extratoppingcost = (toppingarray.length - 2) * 1.50;
+    }); //Gemini helped explain the logic for this selector/list appender.
+    if (!sizeselect) {
+        summary.textContent = "Please select a pizza size";
+        return;
     }
-    let deliverycost = 0;
-    if (deliverymethod === "curbside") deliverycost = 3;
-    if (deliverymethod === "delivery") deliverycost = 15;
-    
-    let firstTotal = baseprice + extratoppingcost + deliverycost;
-    let finalTotal = firstTotal.toFixed(2);
-    summary.textContent = `${formattedName}, your ${selectedsize?.value || "Pizza"} with [${toppingarray.join(", ") || "no toppings"}] costs $${finalTotal}`;
-}
+    const grandtotal = calculateTotal(sizeselect.value, toppingarray.length, deliverselect?.value);
+    summary.textContent = formattedname + ", you ordered a " + sizeselect.value + " pizza with " + toppingarray.join(", ") + ". Your total is $" + grandtotal.toFixed(2) + ".";
+} 
 
-document.addEventListener('submitorder', updateOrderSummary);
-
+orderBtn.addEventListener('click', updateOrderSummary);
 
 
