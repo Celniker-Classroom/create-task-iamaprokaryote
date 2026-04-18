@@ -25,12 +25,9 @@ function updateOrderSummary() {
     document.querySelectorAll('input[name="freetoppings"]:checked').forEach(el => {
         toppingarray.push(el.value);
     });
-
     let userdeliver = document.querySelector('input[name="deliverymethod"]:checked');
     let deliverymethod = userdeliver ? userdeliver.value : "None";
-
     let baseprice = selectedsize ? prices[selectedsize.value] : 0;
-
     let extratoppingcost = 0;
     if (toppingarray.length > 2) {
         extratoppingcost = (toppingarray.length - 2) * 1.50;
@@ -44,7 +41,7 @@ function updateOrderSummary() {
     summary.textContent = `${formattedName}, your ${selectedsize?.value || "Pizza"} with [${toppingarray.join(", ") || "no toppings"}] costs $${finalTotal}`;
 }
 
-document.addEventListener('input', updateOrderSummary);
+document.addEventListener('submitorder', updateOrderSummary);
 
 
 
