@@ -7,12 +7,14 @@ const prices = {
     "Xtra™ Large": 25.00
 };
 
-function calculateTotal(size, toppingcount, deliverytype) {
+function calculateTotal(size, toppingarray, deliverytype) {
     let baseprice = prices[size] || 0;
     let extracost = 0;
     let deliverycost = 0;
-    if (toppingcount > 2) {
-        extracost = (toppingcount - 2) * 0.50;
+    for (let i = 0; i < toppingarray.length; i++) {
+        if (i >= 2) { 
+            extracost += 0.50;
+        }
     }
     if (deliverytype === "curbside") {
         deliverycost = 3;
@@ -36,7 +38,7 @@ function updateOrderSummary() {
         summary.textContent = "Please select a pizza size";
         return;
     }
-    const grandtotal = calculateTotal(sizeselect.value, toppingarray.length, deliverselect?.value);
+    const grandtotal = calculateTotal(sizeselect.value, toppingarray, deliverselect?.value);
     summary.textContent = formattedname + ", you ordered a " + sizeselect.value + " pizza with " + toppingarray.join(", ") + ". Your total is $" + grandtotal.toFixed(2) + ".";
 } 
 
