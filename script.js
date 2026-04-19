@@ -1,5 +1,5 @@
 const summary = document.getElementById('ordersummary');
-const orderBtn = document.getElementById('submitorder');
+const orderbtn = document.getElementById('submitorder');
 const prices = {
     "Small": 10.00,
     "Medium": 15.00,
@@ -42,6 +42,6 @@ function updateOrderSummary() {
     summary.textContent = formattedname + ", you ordered a " + sizeselect.value + " pizza with " + toppingarray.join(", ") + ". Your total is $" + grandtotal.toFixed(2) + ".";
 } 
 
-orderBtn.addEventListener('click', updateOrderSummary);
+orderbtn.addEventListener('click', updateOrderSummary);
 
 
