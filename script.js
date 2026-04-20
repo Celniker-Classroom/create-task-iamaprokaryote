@@ -1,3 +1,4 @@
+//javascript code
 const summary = document.getElementById('ordersummary');
 const orderbtn = document.getElementById('submitorder');
 const prices = {
