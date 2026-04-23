@@ -40,7 +40,7 @@ function updateOrderSummary() {
         return;
     }
     const grandtotal = calculateTotal(sizeselect.value, toppingarray, deliverselect?.value);
-    summary.textContent = formattedname + ", you ordered a " + sizeselect.value + " pizza with " + toppingarray.join(", ") + ". Your total is $" + grandtotal.toFixed(2) + ".";
+    summary.textContent = formattedname + ", you ordered a " + sizeselect.value + " pizza with " + toppingarray.join(", ") + ". Your total is $" + grandtotal.toFixed(2) + ". Please come get your pizza via " + deliverselect.value + ".";
 } 
 
 orderbtn.addEventListener('click', updateOrderSummary);

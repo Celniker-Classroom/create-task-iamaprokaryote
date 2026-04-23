@@ -1,0 +1,9 @@
+body{
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#advimg {
+    max-width: 300px;
+}

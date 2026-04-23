@@ -11,7 +11,12 @@
     <h2>Pizzeria</h2>
     <h4>What is your name?</h4>
     <input type="text" id="name"> 
-    <br>
+ 
+
+    <div id="advertisement">
+        <img src="images/sushi-pizza-slice.jpg" id="advimg">
+        <p>Try our new sushi pizza! Available in one size.</p>
+    </div>
 
     <h4>Select a pizza size</h4>
     <form id="sizeForm">
@@ -28,7 +33,7 @@
         <label for="xlarge">Xtra™ Large | $25.00</label>
     </form>
 
-    <br>
+
     
     <h4 id="toppingsmsg">Select 2 base toppings (free of charge)</h4>
 
@@ -67,20 +72,21 @@
     <h4>Delivery Details</h4>
 
     <form>
-        <input type="radio" name="deliverymethod" value="instore">
+        <input type="radio" name="deliverymethod" value="instore pickup">
         <label>In-store Pickup (no addtl. charge)</label>
 
-        <input type="radio" name="deliverymethod" value="curbside">
+        <input type="radio" name="deliverymethod" value="curbside pickup">
         <label>Curbside Pickup ($3 extra)</label>
 
         <input type="radio" name="deliverymethod" value="delivery">
         <label>Delivery ($15 extra)</label>
     </form>
-    <br>
-
-    <h4>Order Details</h4>
-    <p id="ordersummary"></p>
 
     <button id="submitorder">Submit order!</button>
+
+    <div id="orderdetails">
+        <h4>Order Details</h4>
+        <p id="ordersummary"></p>
+    </div>
 </body>
 </html>
