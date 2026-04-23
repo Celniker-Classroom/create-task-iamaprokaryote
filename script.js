@@ -1,4 +1,9 @@
 //javascript code
+window.addEventListener('load', function() {
+  const loader = document.getElementById('loader');
+  loader.classList.add('loader-hidden');
+});
+
 const summary = document.getElementById('ordersummary');
 const orderbtn = document.getElementById('submitorder');
 const prices = {
