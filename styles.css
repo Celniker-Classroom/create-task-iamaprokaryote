@@ -2,7 +2,20 @@ body{
     margin: 20px auto;
     padding: 20px;
     text-align: center;
+    color: rgb(141, 12, 12);
+    background-color: beige;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+input{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+button{
+    margin: 30px;
+}
+
 
 #advimg {
     max-width: 300px;
@@ -16,6 +29,7 @@ body{
   height: 100vh;
   background-color: #f8f0cc;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -27,7 +41,7 @@ body{
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  animation: spin 12s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {

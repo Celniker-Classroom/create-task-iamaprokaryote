@@ -1,7 +1,9 @@
 //javascript code
 window.addEventListener('load', function() {
   const loader = document.getElementById('loader');
-  loader.classList.add('loader-hidden');
+  setTimeout(function() {
+        loader.classList.add('loader-hidden');
+    }, 1500);
 });
 
 const summary = document.getElementById('ordersummary');
