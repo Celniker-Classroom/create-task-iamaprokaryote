@@ -93,4 +93,23 @@ shizzabtn.addEventListener('click', function() {
 
 orderbtn.addEventListener('click', updateOrderSummary);
 
+//After searching online what I could put on my website, google ai gave me the idea to make a open hours checker. Link here: 
+function updateStoreStatus() {
+    const statustext = document.getElementById('store-status');
+    const now = new Date();
+    const hour = now.getHours();
+    const opentime = 11;
+    const closetime = 23;
+
+    if (hour >= opentime && hour < closetime) {
+        statustext.innerHTML = "• We are currently <strong style='color: green;'>OPEN</strong>";
+    } else {
+        statustext.innerHTML = "• We are currently <strong style='color: red;'>CLOSED</strong>. We are open from 11:00 AM to 11:00 PM.";
+    }
+}
+
+// Run the function when the page loads
+window.addEventListener('DOMContentLoaded', updateStoreStatus);
+
+
 

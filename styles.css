@@ -28,12 +28,73 @@ button{
 #banner img {
     width: 100%;
     height: auto;
+    margin: -20px;
 }
 
 
 #advimg {
     max-width: 300px;
 }
+
+#advertisement {
+    background-color: #fff;
+    border: 3px dashed #8d0c0c;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 40px auto;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+}
+
+#advimg {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+#advimg:hover {
+    transform: scale(1.1) rotate(2deg);
+}
+
+#shizzabtn {
+    max-width: 200px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0; 
+}
+
+form {
+    background-color: #fcf8e3;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 10px auto;
+    border: 1px solid #d6cfad;
+}
+
+label {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+#orderdetails {
+    margin-top: 50px;
+    padding: 20px;
+    border-top: 2px solid #8d0c0c;
+    display: inline-block;
+    min-width: 300px;
+}
+
+#ordersummary {
+    font-family: 'Courier New', Courier, monospace; /* Receipt font */
+    font-size: 18px;
+    background: white;
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
 
 /* BELOW ARE COMPONENTS FOR THE LOADING SCREEN. I USED W3 SCHOOLS TO HELP ME CODE THIS WITH HTML, CSS, and JS. HERE IS THE LINK: https://www.w3schools.com/howto/howto_css_loader.asp */
 
