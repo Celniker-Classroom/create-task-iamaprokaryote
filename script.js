@@ -36,8 +36,25 @@ function calculateTotal(size, toppingarray, deliverytype) {
 function updateOrderSummary() {
     let username = document.getElementById('name').value;
     const formattedname = username ? username.charAt(0).toUpperCase() + username.slice(1).toLowerCase() : "Customer";
-    let sizeselect = document.querySelector("input[name='size']:checked");
     let deliverselect = document.querySelector("input[name='deliverymethod']:checked");
+    if (!deliverselect) {
+        summary.textContent = "Please select a delivery method!";
+        return;
+    }
+    let grandtotal = 0;
+    let orderdescrip = "";
+
+    if (orderbtn.dataset.isShizza === "true") {
+        let deliverycost = 0;
+        if (deliverselect.value === "curbside pickup") deliverycost = 3;
+        if (deliverselect.value === "delivery") deliverycost = 15;
+        
+        grandtotal = 30 + deliverycost;
+        orderdescrip = "Sushi Pizza";
+    }
+
+    else {
+    let sizeselect = document.querySelector("input[name='size']:checked");
     let toppingarray = [];
     document.querySelectorAll("input[name='freetoppings']:checked").forEach(el => {
         toppingarray.push(el.value);
@@ -46,9 +63,33 @@ function updateOrderSummary() {
         summary.textContent = "Please select a pizza size";
         return;
     }
-    const grandtotal = calculateTotal(sizeselect.value, toppingarray, deliverselect?.value);
-    summary.textContent = formattedname + ", you ordered a " + sizeselect.value + " pizza with " + toppingarray.join(", ") + ". Your total is $" + grandtotal.toFixed(2) + ". Please come get your pizza via " + deliverselect.value + ".";
-} 
+    grandtotal = calculateTotal(sizeselect.value, toppingarray, deliverselect.value);
+    let toppingsText = toppingarray.length > 0 ? " with " + toppingarray.join(", ") : " with no toppings";
+    orderdescrip = sizeselect.value + " pizza" + toppingsText;
+    }
+
+    summary.textContent = formattedname + ", you ordered a " + orderdescrip + ". Your total is $" + grandtotal.toFixed(2) + ". Please come get your pizza via " + deliverselect.value + ".";
+    } 
+
+const shizzabtn = document.getElementById('shizzabtn');
+
+//below is the event listener for the shizza button. During the debugging process, I used gemini to help me understand how to disable the other options and update the summary text. I also added a scrollIntoView method to guide the user to the delivery options after selecting the shizza, since it bypasses the size and topping selections.
+shizzabtn.addEventListener('click', function() {
+    const sizeInputs = document.querySelectorAll('input[name="size"]');
+    const toppingInputs = document.querySelectorAll('input[name="freetoppings"]');
+    
+    sizeInputs.forEach(input => {
+        input.disabled = true;
+        input.checked = false; 
+    });
+    toppingInputs.forEach(input => {
+        input.disabled = true;
+        input.checked = false;
+    });
+    orderbtn.dataset.isShizza = "true";
+    summary.textContent = "Sushi Pizza selected ($30.00). Please choose a delivery method below!";
+    document.querySelector('input[name="deliverymethod"]').scrollIntoView({ behavior: 'smooth' });
+});
 
 orderbtn.addEventListener('click', updateOrderSummary);
 
