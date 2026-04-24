@@ -3,25 +3,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pizzeria</title>
+    <title>Canyon Crest Pizzeria</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="banner">
+        <img src="images/bannerimg.png">
+    </div>
+
     <div id="loader" class="loading-screen">
         <h2>Loading...</h2>
         <div class="spinner"></div>
-        <!--sourced from here: https://www.w3schools.com/css/css_challenges_css3_animations.asp -->
+        <!--sourced from here: https://www.w3schools.com/css/css_challenges_css3_animations.asp 
+        more info on how i did the loading screen is found in styles.css -->
     </div>
 
-    <h2>Pizzeria</h2>
+    <h2>Canyon Crest Pizzeria</h2>
     <h4>What is your name?</h4>
     <input type="text" id="name"> 
  
 
     <div id="advertisement">
         <img src="images/sushi-pizza-slice.jpg" id="advimg">
-        <p>Try our new sushi pizza! Available in one size.</p>
+        <button id="shizzabtn" value="30">Try our new sushi pizza! Available in one size.</button>
     </div>
 
     <h4>Select a pizza size</h4>

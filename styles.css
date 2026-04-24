@@ -16,10 +16,17 @@ button{
     margin: 30px;
 }
 
+#banner img {
+    width: 100%;
+    height: auto;
+}
+
 
 #advimg {
     max-width: 300px;
 }
+
+/* BELOW ARE COMPONENTS FOR THE LOADING SCREEN. I USED W3 SCHOOLS TO HELP ME CODE THIS WITH HTML, CSS, and JS. HERE IS THE LINK: https://www.w3schools.com/howto/howto_css_loader.asp */
 
 .loading-screen {
   position: fixed;
@@ -36,7 +43,7 @@ button{
 }
 
 .spinner {
-  border: 8px solid #f3f3f3;
+  border: 8px solid #f1b6b6;
   border-top: 8px solid #8f0a0a;
   border-radius: 50%;
   width: 60px;
@@ -49,7 +56,6 @@ button{
   100% { transform: rotate(360deg); }
 }
 
-/* Class to hide the loader */
 .loader-hidden {
   display: none !important;
 }
