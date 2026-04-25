@@ -8,8 +8,25 @@ body{
 }
 
 input{
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 15px;
+}
+
+input[type="text"]{
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(141, 12, 12);
+    background-color: beige;
+    border: 2px solid rgb(141, 12, 12);
+    border-radius: 10px;
+}
+
+input[type="radio"] {
+  accent-color: rgb(141, 12, 12);
+}
+
+input[type="checkbox"] {
+  accent-color: rgb(141, 12, 12);
 }
 
 button{
@@ -88,7 +105,7 @@ label {
 }
 
 #ordersummary {
-    font-family: 'Courier New', Courier, monospace; /* Receipt font */
+    font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
     background: white;
     padding: 20px;

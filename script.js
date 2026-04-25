@@ -20,7 +20,10 @@ function calculateTotal(size, toppingarray, deliverytype) {
     let extracost = 0;
     let deliverycost = 0;
     for (let i = 0; i < toppingarray.length; i++) {
-        if (i >= 2) { 
+        if (i == 2) { 
+            summary.textContent = "Each additional topping after the first two costs $0.50 each.";
+        }
+        else if (i > 2) {
             extracost += 0.50;
         }
     }
@@ -93,7 +96,19 @@ shizzabtn.addEventListener('click', function() {
 
 orderbtn.addEventListener('click', updateOrderSummary);
 
-//After searching online what I could put on my website, google ai gave me the idea to make a open hours checker. Link here: 
+const toppinginputs = document.querySelectorAll("input[name='freetoppings']");
+toppinginputs.forEach(input => {
+    input.addEventListener('change', function() {
+        const usertoppings = document.querySelectorAll("input[name='freetoppings']:checked").length;
+        if (usertoppings >= 2) {
+            summary.textContent = "Each additional topping after the first two costs $0.50 each.";
+        } else {
+            summary.textContent = "";
+        }
+    });
+});
+
+//w3schools aided in explaining date/time: https://www.w3schools.com/js/js_dates.asp
 function updateStoreStatus() {
     const statustext = document.getElementById('store-status');
     const now = new Date();
@@ -102,13 +117,11 @@ function updateStoreStatus() {
     const closetime = 23;
 
     if (hour >= opentime && hour < closetime) {
-        statustext.innerHTML = "• We are currently <strong style='color: green;'>OPEN</strong>";
+        statustext.textContent = "We are currently OPEN! We are open from 11:00 AM to 11:00 PM.";
     } else {
-        statustext.innerHTML = "• We are currently <strong style='color: red;'>CLOSED</strong>. We are open from 11:00 AM to 11:00 PM.";
+        statustext.textContent = "We are currently closed. We are open from 11:00 AM to 11:00 PM.";
     }
 }
-
-// Run the function when the page loads
 window.addEventListener('DOMContentLoaded', updateStoreStatus);
 
 
