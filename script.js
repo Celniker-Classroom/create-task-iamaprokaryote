@@ -58,26 +58,27 @@ function updateOrderSummary() {
     }
 
     else {
-    let sizeselect = document.querySelector("input[name='size']:checked");
-    let toppingarray = [];
-    document.querySelectorAll("input[name='freetoppings']:checked").forEach(el => {
-        toppingarray.push(el.value);
-    }); //Gemini helped explain the logic for this selector/list appender.
-    if (!sizeselect) {
-        summary.textContent = "Please select a pizza size";
+        let sizeselect = document.querySelector("input[name='size']:checked");
+        let toppingarray = [];
+        document.querySelectorAll("input[name='freetoppings']:checked").forEach(el => {
+            toppingarray.push(el.value);
+        }); //Gemini helped explain the logic for this selector/list appender.
+        
+        if (!sizeselect) {
+            summary.textContent = "Please select a pizza size";
         return;
-    }
-    grandtotal = calculateTotal(sizeselect.value, toppingarray, deliverselect.value);
-    let toppingsText = toppingarray.length > 0 ? " with " + toppingarray.join(", ") : " with no toppings";
-    orderdescrip = sizeselect.value + " pizza" + toppingsText;
-    }
+        }
+        grandtotal = calculateTotal(sizeselect.value, toppingarray, deliverselect.value);
+        let toppingsText = toppingarray.length > 0 ? " with " + toppingarray.join(", ") : " with no toppings";
+        orderdescrip = sizeselect.value + " pizza" + toppingsText;
+        }
 
-    summary.textContent = formattedname + ", you ordered a " + orderdescrip + ". Your total is $" + grandtotal.toFixed(2) + ". Please come get your pizza via " + deliverselect.value + ".";
+        summary.textContent = formattedname + ", you ordered a " + orderdescrip + ". Your total is $" + grandtotal.toFixed(2) + ". Please come get your pizza via " + deliverselect.value + ".";
     } 
 
 const shizzabtn = document.getElementById('shizzabtn');
 
-//below is the event listener for the shizza button. During the debugging process, I used gemini to help me understand how to disable the other options and update the summary text. I also added a scrollIntoView method to guide the user to the delivery options after selecting the shizza, since it bypasses the size and topping selections.
+//below is the event listener for the shizza button. During the debugging process, I used gemini to help me understand how to disable the other options and update the summary text. I also added a scrollIntoView method to guide the user to the delivery options after selecting the shizza, since it bypasses the size and topping selections. https://share.google/aimode/EsUQF5iJn6ZcxmBvS
 shizzabtn.addEventListener('click', function() {
     const sizeInputs = document.querySelectorAll('input[name="size"]');
     const toppingInputs = document.querySelectorAll('input[name="freetoppings"]');

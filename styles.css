@@ -48,6 +48,7 @@ button{
     margin: -20px;
 }
 
+/* below is the styling/animation for the advertisement section, which i used w3schools as my primary reference for. https://www.w3schools.com/css/css3_flexbox.asp */
 
 #advimg {
     max-width: 300px;
@@ -81,6 +82,8 @@ button{
     font-weight: bold;
     margin: 0; 
 }
+
+/* ------------------------------------------------------------------------------------------------------------------------------ */
 
 form {
     background-color: #fcf8e3;
