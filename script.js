@@ -7,6 +7,7 @@ window.addEventListener('load', function() {
 });
 
 const summary = document.getElementById('ordersummary');
+const toppingsmsg = document.getElementById('toppingsmsg');
 const orderbtn = document.getElementById('submitorder');
 const prices = {
     "Small": 10.00,
@@ -96,14 +97,14 @@ shizzabtn.addEventListener('click', function() {
 
 orderbtn.addEventListener('click', updateOrderSummary);
 
-const toppinginputs = document.querySelectorAll("input[name='freetoppings']");
-toppinginputs.forEach(input => {
+const toppinginput = document.querySelectorAll("input[name='freetoppings']");
+toppinginput.forEach(input => {
     input.addEventListener('change', function() {
         const usertoppings = document.querySelectorAll("input[name='freetoppings']:checked").length;
         if (usertoppings >= 2) {
-            summary.textContent = "Each additional topping after the first two costs $0.50 each.";
+            toppingsmsg.textContent = "Each additional topping costs $0.50 each.";
         } else {
-            summary.textContent = "";
+            toppingsmsg.textContent = "Select 2 base toppings (free of charge)";
         }
     });
 });
@@ -113,13 +114,13 @@ function updateStoreStatus() {
     const statustext = document.getElementById('store-status');
     const now = new Date();
     const hour = now.getHours();
-    const opentime = 11;
-    const closetime = 23;
+    const open = 11;
+    const close = 23;
 
-    if (hour >= opentime && hour < closetime) {
-        statustext.textContent = "We are currently OPEN! We are open from 11:00 AM to 11:00 PM.";
+    if (hour >= open && hour < close) {
+        statustext.textContent = "We are currently open! Our hours are from 11:00 AM to 11:00 PM.";
     } else {
-        statustext.textContent = "We are currently closed. We are open from 11:00 AM to 11:00 PM.";
+        statustext.textContent = "We are currently closed. Our hours are from 11:00 AM to 11:00 PM.";
     }
 }
 window.addEventListener('DOMContentLoaded', updateStoreStatus);
