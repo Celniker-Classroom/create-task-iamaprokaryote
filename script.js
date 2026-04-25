@@ -97,8 +97,10 @@ shizzabtn.addEventListener('click', function() {
 
 orderbtn.addEventListener('click', updateOrderSummary);
 
+//--------------------------------------------------------------------------------------------------------
+
 const toppinginput = document.querySelectorAll("input[name='freetoppings']");
-toppinginput.forEach(input => {
+toppinginput.forEach(function(input) {
     input.addEventListener('change', function() {
         const usertoppings = document.querySelectorAll("input[name='freetoppings']:checked").length;
         if (usertoppings >= 2) {
